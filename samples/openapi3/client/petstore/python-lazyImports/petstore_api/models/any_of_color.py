@@ -15,7 +15,12 @@
 from __future__ import annotations
 import pprint
 from pydantic import Field, RootModel
-from typing import Any, Dict, List, Union, Self
+from typing import Any, Dict, List, Union
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 ANYOFCOLOR_ANY_OF_SCHEMAS = ["List[int]", "str"]
 

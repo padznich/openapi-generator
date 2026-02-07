@@ -21,7 +21,12 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from petstore_api.models.file import File
 from petstore_api.models.tag import Tag
-from typing import Literal, Self
+from typing import Literal
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 from pydantic import Field
 
 class MultiArrays(BaseModel):

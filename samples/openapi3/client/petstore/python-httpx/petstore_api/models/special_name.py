@@ -20,7 +20,12 @@ import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from petstore_api.models.category import Category
-from typing import Literal, Self
+from typing import Literal
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 from pydantic import Field
 
 class SpecialName(BaseModel):

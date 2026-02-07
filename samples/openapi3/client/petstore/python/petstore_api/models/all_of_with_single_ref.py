@@ -20,7 +20,12 @@ import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from petstore_api.models.single_ref_type import SingleRefType
-from typing import Literal, Self
+from typing import Literal
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 from pydantic import Field
 
 class AllOfWithSingleRef(BaseModel):

@@ -17,7 +17,12 @@ import pprint
 from petstore_api.models.enum_string1 import EnumString1
 from petstore_api.models.enum_string2 import EnumString2
 from pydantic import Field, RootModel
-from typing import Any, Dict, List, Union, Self
+from typing import Any, Dict, List, Union
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 ONEOFENUMSTRING_ONE_OF_SCHEMAS = ["EnumString1", "EnumString2"]

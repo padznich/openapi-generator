@@ -10,7 +10,12 @@
 """  # noqa: E501
 
 
-from typing import Any, Optional, Self
+from typing import Any, Optional
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class OpenApiException(Exception):
     """The base exception class for all OpenAPIExceptions"""
