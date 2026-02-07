@@ -34,7 +34,7 @@ class NullableProperty(BaseModel):
     """ # noqa: E501
     id: StrictInt
     name: Optional[Annotated[str, Field(strict=True)]]
-    __properties: ClassVar[List[str]] = ["id", "name"]
+    __properties: ClassVar[list[str]] = ["id", "name"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -54,8 +54,8 @@ class NullableProperty(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -67,7 +67,7 @@ class NullableProperty(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

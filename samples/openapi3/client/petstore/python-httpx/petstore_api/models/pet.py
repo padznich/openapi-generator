@@ -43,7 +43,7 @@ class Pet(BaseModel):
         None,
         description="pet status in the store"
     )
-    __properties: ClassVar[List[str]] = ["id", "category", "name", "photoUrls", "tags", "status"]
+    __properties: ClassVar[list[str]] = ["id", "category", "name", "photoUrls", "tags", "status"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -63,8 +63,8 @@ class Pet(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -76,7 +76,7 @@ class Pet(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

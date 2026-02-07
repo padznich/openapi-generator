@@ -34,7 +34,7 @@ class OuterComposite(BaseModel):
     my_number: Optional[float] = None
     my_string: Optional[StrictStr] = None
     my_boolean: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["my_number", "my_string", "my_boolean"]
+    __properties: ClassVar[list[str]] = ["my_number", "my_string", "my_boolean"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,8 +44,8 @@ class OuterComposite(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -57,7 +57,7 @@ class OuterComposite(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

@@ -45,8 +45,8 @@ class NullableClass(BaseModel):
     object_nullable_prop: Optional[Dict[str, Dict[str, Any]]] = None
     object_and_items_nullable_prop: Optional[Dict[str, Optional[Dict[str, Any]]]] = None
     object_items_nullable: Optional[Dict[str, Optional[Dict[str, Any]]]] = None
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["required_integer_prop", "integer_prop", "number_prop", "boolean_prop", "string_prop", "date_prop", "datetime_prop", "array_nullable_prop", "array_and_items_nullable_prop", "array_items_nullable", "object_nullable_prop", "object_and_items_nullable_prop", "object_items_nullable"]
+    additional_properties: dict[str, Any] = {}
+    __properties: ClassVar[list[str]] = ["required_integer_prop", "integer_prop", "number_prop", "boolean_prop", "string_prop", "date_prop", "datetime_prop", "array_nullable_prop", "array_and_items_nullable_prop", "array_items_nullable", "object_nullable_prop", "object_and_items_nullable_prop", "object_items_nullable"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,8 +56,8 @@ class NullableClass(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -69,7 +69,7 @@ class NullableClass(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

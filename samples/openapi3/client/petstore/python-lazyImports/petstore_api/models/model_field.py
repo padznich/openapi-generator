@@ -32,8 +32,8 @@ class ModelField(BaseModel):
     ModelField
     """ # noqa: E501
     var_field: Optional[StrictStr] = Field(default=None, alias="field")
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["field"]
+    additional_properties: dict[str, Any] = {}
+    __properties: ClassVar[list[str]] = ["field"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -43,8 +43,8 @@ class ModelField(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -56,7 +56,7 @@ class ModelField(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

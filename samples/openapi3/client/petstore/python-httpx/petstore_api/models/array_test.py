@@ -37,7 +37,7 @@ class ArrayTest(BaseModel):
     array_of_nullable_float: Optional[List[Optional[float]]] = None
     array_array_of_integer: Optional[List[List[StrictInt]]] = None
     array_array_of_model: Optional[List[List[ReadOnlyFirst]]] = None
-    __properties: ClassVar[List[str]] = ["array_of_string", "array_of_nullable_float", "array_array_of_integer", "array_array_of_model"]
+    __properties: ClassVar[list[str]] = ["array_of_string", "array_of_nullable_float", "array_array_of_integer", "array_array_of_model"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -47,8 +47,8 @@ class ArrayTest(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -60,7 +60,7 @@ class ArrayTest(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

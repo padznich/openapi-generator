@@ -33,8 +33,8 @@ class Category(BaseModel):
     """ # noqa: E501
     id: Optional[StrictInt] = None
     name: StrictStr
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "name"]
+    additional_properties: dict[str, Any] = {}
+    __properties: ClassVar[list[str]] = ["id", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,8 +44,8 @@ class Category(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -57,7 +57,7 @@ class Category(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

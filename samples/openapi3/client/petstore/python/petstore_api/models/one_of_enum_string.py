@@ -17,7 +17,7 @@ import pprint
 from petstore_api.models.enum_string1 import EnumString1
 from petstore_api.models.enum_string2 import EnumString2
 from pydantic import Field, RootModel
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 # TODO: When dropping Python 3.10 support, remove fallback
 try:
     from typing import Self
@@ -52,8 +52,8 @@ class OneOfEnumString(RootModel[Union[EnumString1, EnumString2]]):
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the python Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the python dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -65,7 +65,7 @@ class OneOfEnumString(RootModel[Union[EnumString1, EnumString2]]):
         """Returns the JSON representation of the actual instance"""
         return self.model_dump_json(by_alias=True)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

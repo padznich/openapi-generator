@@ -41,8 +41,8 @@ class TestModelWithEnumDefault(BaseModel):
         None,
         description="test_inline_defined_enum_with_default of the TestModelWithEnumDefault"
     )
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["test_enum", "test_string", "test_enum_with_default", "test_string_with_default", "test_inline_defined_enum_with_default"]
+    additional_properties: dict[str, Any] = {}
+    __properties: ClassVar[list[str]] = ["test_enum", "test_string", "test_enum_with_default", "test_string_with_default", "test_inline_defined_enum_with_default"]
 
     @field_validator('test_inline_defined_enum_with_default')
     def test_inline_defined_enum_with_default_validate_enum(cls, value):
@@ -62,8 +62,8 @@ class TestModelWithEnumDefault(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -75,7 +75,7 @@ class TestModelWithEnumDefault(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

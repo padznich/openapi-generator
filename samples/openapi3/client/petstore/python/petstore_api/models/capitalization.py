@@ -37,8 +37,8 @@ class Capitalization(BaseModel):
     capital_snake: Optional[StrictStr] = Field(default=None, alias="Capital_Snake")
     sca_eth_flow_points: Optional[StrictStr] = Field(default=None, alias="SCA_ETH_Flow_Points")
     att_name: Optional[StrictStr] = Field(default=None, description="Name of the pet ", alias="ATT_NAME")
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["smallCamel", "CapitalCamel", "small_Snake", "Capital_Snake", "SCA_ETH_Flow_Points", "ATT_NAME"]
+    additional_properties: dict[str, Any] = {}
+    __properties: ClassVar[list[str]] = ["smallCamel", "CapitalCamel", "small_Snake", "Capital_Snake", "SCA_ETH_Flow_Points", "ATT_NAME"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,8 +48,8 @@ class Capitalization(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -61,7 +61,7 @@ class Capitalization(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

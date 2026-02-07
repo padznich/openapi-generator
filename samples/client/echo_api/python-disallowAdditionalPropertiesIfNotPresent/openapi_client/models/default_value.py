@@ -34,7 +34,7 @@ class DefaultValue(BaseModel):
     to test the default value of properties
     """ # noqa: E501
     array_string_enum_ref_default: Optional[List[StringEnumRef]] = None
-    array_string_enum_default: Optional[List[Literal['success', 'failure', 'unclassified']]] = Field(
+    array_string_enum_default: Optional[list[Literal['success', 'failure', 'unclassified']]] = Field(
         None,
         description="array_string_enum_default of the DefaultValue"
     )
@@ -44,7 +44,7 @@ class DefaultValue(BaseModel):
     array_string_nullable: Optional[List[StrictStr]] = None
     array_string_extension_nullable: Optional[List[StrictStr]] = None
     string_nullable: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["array_string_enum_ref_default", "array_string_enum_default", "array_string_default", "array_integer_default", "array_string", "array_string_nullable", "array_string_extension_nullable", "string_nullable"]
+    __properties: ClassVar[list[str]] = ["array_string_enum_ref_default", "array_string_enum_default", "array_string_default", "array_integer_default", "array_string", "array_string_nullable", "array_string_extension_nullable", "string_nullable"]
 
     @field_validator('array_string_enum_default')
     def array_string_enum_default_validate_enum(cls, value):
@@ -65,8 +65,8 @@ class DefaultValue(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -78,7 +78,7 @@ class DefaultValue(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

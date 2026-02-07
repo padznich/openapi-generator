@@ -14,8 +14,7 @@
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Dict, List, Optional, Tuple, Union
-from typing import Annotated
+from typing import Any, Optional, Union, Annotated
 
 from pydantic import Field, StrictBytes, StrictStr
 from typing import Any, Dict, List, Optional, Tuple, Union
@@ -48,14 +47,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> bytearray:
         """Test binary (gif) response body
@@ -91,7 +90,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "bytearray",
         }
         response_data = self.api_client.call_api(
@@ -111,14 +110,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[bytearray]:
         """Test binary (gif) response body
@@ -154,7 +153,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "bytearray",
         }
         response_data = self.api_client.call_api(
@@ -174,14 +173,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test binary (gif) response body
@@ -217,7 +216,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "bytearray",
         }
         response_data = self.api_client.call_api(
@@ -237,15 +236,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -266,7 +265,7 @@ class BodyApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -294,14 +293,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
         """Test body parameter(s)
@@ -340,7 +339,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -361,14 +360,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
         """Test body parameter(s)
@@ -407,7 +406,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -428,14 +427,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test body parameter(s)
@@ -474,7 +473,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -495,15 +494,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -547,7 +546,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -575,14 +574,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
         """Test array of binary in multipart mime
@@ -621,7 +620,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -642,14 +641,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
         """Test array of binary in multipart mime
@@ -688,7 +687,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -709,14 +708,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test array of binary in multipart mime
@@ -755,7 +754,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -776,16 +775,16 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
             'files': 'csv',
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -821,7 +820,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -849,14 +848,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
         """Test single binary in multipart mime
@@ -895,7 +894,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -916,14 +915,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
         """Test single binary in multipart mime
@@ -962,7 +961,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -983,14 +982,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test single binary in multipart mime
@@ -1029,7 +1028,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -1050,15 +1049,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1094,7 +1093,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1122,14 +1121,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Pet:
         """Test body parameter(s)
@@ -1168,7 +1167,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "Pet",
         }
         response_data = self.api_client.call_api(
@@ -1189,14 +1188,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Pet]:
         """Test body parameter(s)
@@ -1235,7 +1234,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "Pet",
         }
         response_data = self.api_client.call_api(
@@ -1256,14 +1255,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test body parameter(s)
@@ -1302,7 +1301,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "Pet",
         }
         response_data = self.api_client.call_api(
@@ -1323,15 +1322,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1367,7 +1366,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1395,14 +1394,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
         """Test free form object
@@ -1441,7 +1440,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -1462,14 +1461,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
         """Test free form object
@@ -1508,7 +1507,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -1529,14 +1528,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test free form object
@@ -1575,7 +1574,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -1596,15 +1595,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1640,7 +1639,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1668,14 +1667,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Pet:
         """Test body parameter(s)
@@ -1714,7 +1713,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "Pet",
         }
         response_data = self.api_client.call_api(
@@ -1735,14 +1734,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Pet]:
         """Test body parameter(s)
@@ -1781,7 +1780,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "Pet",
         }
         response_data = self.api_client.call_api(
@@ -1802,14 +1801,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test body parameter(s)
@@ -1848,7 +1847,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "Pet",
         }
         response_data = self.api_client.call_api(
@@ -1869,15 +1868,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1913,7 +1912,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1941,14 +1940,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
         """Test empty response body
@@ -1987,7 +1986,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -2008,14 +2007,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
         """Test empty response body
@@ -2054,7 +2053,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -2075,14 +2074,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test empty response body
@@ -2121,7 +2120,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -2142,15 +2141,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -2186,7 +2185,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -2214,14 +2213,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StringEnumRef:
         """Test string enum response body
@@ -2260,7 +2259,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "StringEnumRef",
         }
         response_data = self.api_client.call_api(
@@ -2281,14 +2280,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StringEnumRef]:
         """Test string enum response body
@@ -2327,7 +2326,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "StringEnumRef",
         }
         response_data = self.api_client.call_api(
@@ -2348,14 +2347,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test string enum response body
@@ -2394,7 +2393,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "StringEnumRef",
         }
         response_data = self.api_client.call_api(
@@ -2415,15 +2414,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -2459,7 +2458,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -2487,14 +2486,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
         """Test empty json (request body)
@@ -2533,7 +2532,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -2554,14 +2553,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
         """Test empty json (request body)
@@ -2600,7 +2599,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -2621,14 +2620,14 @@ class BodyApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
+            tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _request_auth: Optional[dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _headers: Optional[dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Test empty json (request body)
@@ -2667,7 +2666,7 @@ class BodyApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, Optional[str]] = {
             '200': "str",
         }
         response_data = self.api_client.call_api(
@@ -2688,15 +2687,15 @@ class BodyApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, Optional[str]] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -2732,7 +2731,7 @@ class BodyApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(

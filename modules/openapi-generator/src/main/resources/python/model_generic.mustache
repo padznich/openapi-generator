@@ -57,8 +57,8 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
         {{/values}}
       {{/isArray}}
       {{#isArray}}
-        {{! Array enum - use List[Literal] }}
-    {{name}}: {{#required}}List[Literal[{{#allowableValues}}{{#enumVars}}{{#isString}}{{{value}}}{{/isString}}{{^isString}}{{{value}}}{{/isString}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}]]{{/required}}{{^required}}Optional[List[Literal[{{#allowableValues}}{{#enumVars}}{{#isString}}{{{value}}}{{/isString}}{{^isString}}{{{value}}}{{/isString}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}]]]{{/required}} = Field(
+        {{! Array enum - use list[Literal] }}
+    {{name}}: {{#required}}list[Literal[{{#allowableValues}}{{#enumVars}}{{#isString}}{{{value}}}{{/isString}}{{^isString}}{{{value}}}{{/isString}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}]]{{/required}}{{^required}}Optional[list[Literal[{{#allowableValues}}{{#enumVars}}{{#isString}}{{{value}}}{{/isString}}{{^isString}}{{{value}}}{{/isString}}{{^-last}}, {{/-last}}{{/enumVars}}{{/allowableValues}}]]]{{/required}} = Field(
         {{#required}}...{{/required}}{{^required}}None{{/required}},
         description="{{description}}{{^description}}{{{name}}} of the {{classname}}{{/description}}"
     )
@@ -70,9 +70,9 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
   {{/isEnum}}
 {{/vars}}
 {{#isAdditionalPropertiesTrue}}
-    additional_properties: Dict[str, Any] = {}
+    additional_properties: dict[str, Any] = {}
 {{/isAdditionalPropertiesTrue}}
-    __properties: ClassVar[List[str]] = [{{#allVars}}"{{baseName}}"{{^-last}}, {{/-last}}{{/allVars}}]
+    __properties: ClassVar[list[str]] = [{{#allVars}}"{{baseName}}"{{^-last}}, {{/-last}}{{/allVars}}]
 {{#vars}}
     {{#vendorExtensions.x-regex}}
 
@@ -145,12 +145,12 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
     __discriminator_property_name: ClassVar[str] = '{{discriminator.propertyBaseName}}'
 
     # discriminator mappings
-    __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
+    __discriminator_value_class_map: ClassVar[dict[str, str]] = {
         {{#mappedModels}}'{{{mappingName}}}': '{{{modelName}}}'{{^-last}},{{/-last}}{{/mappedModels}}
     }
 
     @classmethod
-    def get_discriminator_value(cls, obj: Dict[str, Any]) -> Optional[str]:
+    def get_discriminator_value(cls, obj: dict[str, Any]) -> Optional[str]:
         """Returns the discriminator value (object type) of the data"""
         discriminator_value = obj[cls.__discriminator_property_name]
         if discriminator_value:
@@ -161,8 +161,8 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
 {{/discriminator}}
 {{/hasChildren}}
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
+    def from_dict(cls, obj: dict[str, Any]) -> Self:
+        """Returns the object represented by the dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -174,7 +174,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 
