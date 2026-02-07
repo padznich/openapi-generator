@@ -19,6 +19,12 @@ import ssl
 
 import urllib3
 
+# TODO: When dropping Python 3.12 support, remove fallback
+try:
+    from warnings import deprecated
+except ImportError:
+    from typing_extensions import deprecated
+
 from petstore_api.exceptions import ApiException, ApiValueError
 
 SUPPORTED_SOCKS_PROXIES = {"socks5", "socks5h", "socks4", "socks4a"}
@@ -53,10 +59,12 @@ class RESTResponse(io.IOBase):
         """Returns a dictionary of response headers."""
         return self.response.headers
 
+    @deprecated("Use the headers property instead.")
     def getheaders(self):
         """Returns a dictionary of the response headers; use ``headers`` instead."""
         return self.response.headers
 
+    @deprecated("Use headers.get() instead.")
     def getheader(self, name, default=None):
         """Returns a given response header; use ``headers.get()`` instead."""
         return self.response.headers.get(name, default)
