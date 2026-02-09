@@ -73,7 +73,7 @@ class EnumTest(BaseModel):
     outer_enum_integer_default_value: Optional[OuterEnumIntegerDefaultValue] = Field(default=OuterEnumIntegerDefaultValue.NUMBER_0, alias="outerEnumIntegerDefaultValue")
     enum_number_vendor_ext: Optional[EnumNumberVendorExt] = Field(default=None, alias="enumNumberVendorExt")
     enum_string_vendor_ext: Optional[EnumStringVendorExt] = Field(default=None, alias="enumStringVendorExt")
-    __properties: ClassVar[list[str]] = ["enum_string", "enum_string_required", "enum_integer_default", "enum_integer", "enum_number", "enum_string_single_member", "enum_integer_single_member", "outerEnum", "outerEnumInteger", "outerEnumDefaultValue", "outerEnumIntegerDefaultValue", "enumNumberVendorExt", "enumStringVendorExt"]
+    __properties: ClassVar[List[str]] = ["enum_string", "enum_string_required", "enum_integer_default", "enum_integer", "enum_number", "enum_string_single_member", "enum_integer_single_member", "outerEnum", "outerEnumInteger", "outerEnumDefaultValue", "outerEnumIntegerDefaultValue", "enumNumberVendorExt", "enumStringVendorExt"]
 
     @field_validator('enum_string')
     def enum_string_validate_enum(cls, value):
@@ -150,8 +150,8 @@ class EnumTest(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -163,7 +163,7 @@ class EnumTest(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

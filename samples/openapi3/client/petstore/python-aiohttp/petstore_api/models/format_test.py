@@ -52,7 +52,7 @@ class FormatTest(BaseModel):
     password: Annotated[str, Field(min_length=10, strict=True, max_length=64)]
     pattern_with_digits: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A string that is a 10 digit number. Can have leading zeros.")
     pattern_with_digits_and_delimiter: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A string starting with 'image_' (case insensitive) and one to three digits following i.e. Image_01.")
-    __properties: ClassVar[list[str]] = ["integer", "int32", "int64", "number", "float", "double", "decimal", "string", "string_with_double_quote_pattern", "byte", "binary", "date", "dateTime", "uuid", "password", "pattern_with_digits", "pattern_with_digits_and_delimiter"]
+    __properties: ClassVar[List[str]] = ["integer", "int32", "int64", "number", "float", "double", "decimal", "string", "string_with_double_quote_pattern", "byte", "binary", "date", "dateTime", "uuid", "password", "pattern_with_digits", "pattern_with_digits_and_delimiter"]
 
     @field_validator('string')
     def string_validate_regular_expression(cls, value):
@@ -102,8 +102,8 @@ class FormatTest(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -115,7 +115,7 @@ class FormatTest(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

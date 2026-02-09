@@ -35,7 +35,7 @@ class Task(BaseModel):
     """ # noqa: E501
     id: UUID
     activity: TaskActivity
-    __properties: ClassVar[list[str]] = ["id", "activity"]
+    __properties: ClassVar[List[str]] = ["id", "activity"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,8 +45,8 @@ class Task(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -58,7 +58,7 @@ class Task(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

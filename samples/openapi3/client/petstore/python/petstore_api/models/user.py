@@ -39,8 +39,8 @@ class User(BaseModel):
     password: Optional[StrictStr] = None
     phone: Optional[StrictStr] = None
     user_status: Optional[StrictInt] = Field(default=None, description="User Status", alias="userStatus")
-    additional_properties: dict[str, Any] = {}
-    __properties: ClassVar[list[str]] = ["id", "username", "firstName", "lastName", "email", "password", "phone", "userStatus"]
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["id", "username", "firstName", "lastName", "email", "password", "phone", "userStatus"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,8 +50,8 @@ class User(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -63,7 +63,7 @@ class User(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

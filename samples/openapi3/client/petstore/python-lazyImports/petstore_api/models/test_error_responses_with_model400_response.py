@@ -32,8 +32,8 @@ class TestErrorResponsesWithModel400Response(BaseModel):
     TestErrorResponsesWithModel400Response
     """ # noqa: E501
     reason400: Optional[StrictStr] = None
-    additional_properties: dict[str, Any] = {}
-    __properties: ClassVar[list[str]] = ["reason400"]
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["reason400"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -43,8 +43,8 @@ class TestErrorResponsesWithModel400Response(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -56,7 +56,7 @@ class TestErrorResponsesWithModel400Response(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

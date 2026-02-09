@@ -34,8 +34,8 @@ class ModelApiResponse(BaseModel):
     code: Optional[StrictInt] = None
     type: Optional[StrictStr] = None
     message: Optional[StrictStr] = None
-    additional_properties: dict[str, Any] = {}
-    __properties: ClassVar[list[str]] = ["code", "type", "message"]
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["code", "type", "message"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,8 +45,8 @@ class ModelApiResponse(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -58,7 +58,7 @@ class ModelApiResponse(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

@@ -37,7 +37,7 @@ class DataQuery(Query):
     suffix: Optional[StrictStr] = Field(default=None, description="test suffix")
     text: Optional[StrictStr] = Field(default=None, description="Some text containing white spaces")
     var_date: Optional[datetime] = Field(default=None, description="A date", alias="date")
-    __properties: ClassVar[list[str]] = ["id", "outcomes", "suffix", "text", "date"]
+    __properties: ClassVar[List[str]] = ["id", "outcomes", "suffix", "text", "date"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -47,8 +47,8 @@ class DataQuery(Query):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -60,7 +60,7 @@ class DataQuery(Query):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

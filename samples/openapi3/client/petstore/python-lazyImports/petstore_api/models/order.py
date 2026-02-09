@@ -41,8 +41,8 @@ class Order(BaseModel):
         description="Order Status"
     )
     complete: Optional[StrictBool] = False
-    additional_properties: dict[str, Any] = {}
-    __properties: ClassVar[list[str]] = ["id", "petId", "quantity", "shipDate", "status", "complete"]
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["id", "petId", "quantity", "shipDate", "status", "complete"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -62,8 +62,8 @@ class Order(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -75,7 +75,7 @@ class Order(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

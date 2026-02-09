@@ -36,7 +36,7 @@ class WithNestedOneOf(BaseModel):
     size: Optional[StrictInt] = None
     nested_pig: Optional[Pig] = None
     nested_oneof_enum_string: Optional[OneOfEnumString] = None
-    __properties: ClassVar[list[str]] = ["size", "nested_pig", "nested_oneof_enum_string"]
+    __properties: ClassVar[List[str]] = ["size", "nested_pig", "nested_oneof_enum_string"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -46,8 +46,8 @@ class WithNestedOneOf(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -59,7 +59,7 @@ class WithNestedOneOf(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

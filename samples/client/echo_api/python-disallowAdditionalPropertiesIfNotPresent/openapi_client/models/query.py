@@ -33,11 +33,11 @@ class Query(BaseModel):
     Query
     """ # noqa: E501
     id: Optional[StrictInt] = Field(default=None, description="Query")
-    outcomes: Optional[list[Literal['SUCCESS', 'FAILURE', 'SKIPPED']]] = Field(
+    outcomes: Optional[List[Literal['SUCCESS', 'FAILURE', 'SKIPPED']]] = Field(
         None,
         description="outcomes of the Query"
     )
-    __properties: ClassVar[list[str]] = ["id", "outcomes"]
+    __properties: ClassVar[List[str]] = ["id", "outcomes"]
 
     @field_validator('outcomes')
     def outcomes_validate_enum(cls, value):
@@ -58,8 +58,8 @@ class Query(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -71,7 +71,7 @@ class Query(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

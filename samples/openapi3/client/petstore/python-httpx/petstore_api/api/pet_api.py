@@ -13,7 +13,8 @@
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Optional, Union, Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Annotated
 
 from pydantic import Field, StrictBytes, StrictInt, StrictStr, field_validator
 from typing import List, Optional, Tuple, Union
@@ -46,14 +47,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Add a new pet to the store
@@ -92,7 +93,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '405': None,
         }
@@ -114,14 +115,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Add a new pet to the store
@@ -160,7 +161,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '405': None,
         }
@@ -182,14 +183,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Add a new pet to the store
@@ -228,7 +229,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '405': None,
         }
@@ -250,15 +251,15 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -288,7 +289,7 @@ class PetApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth', 
             'http_signature_test'
         ]
@@ -319,14 +320,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Deletes a pet
@@ -368,7 +369,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
         }
@@ -391,14 +392,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Deletes a pet
@@ -440,7 +441,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
         }
@@ -463,14 +464,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Deletes a pet
@@ -512,7 +513,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
         }
@@ -535,15 +536,15 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -561,7 +562,7 @@ class PetApi:
 
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth'
         ]
 
@@ -590,14 +591,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Pet]:
         """Finds Pets by status
@@ -636,7 +637,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Pet]",
             '400': None,
         }
@@ -658,14 +659,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Pet]]:
         """Finds Pets by status
@@ -704,7 +705,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Pet]",
             '400': None,
         }
@@ -726,14 +727,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Finds Pets by status
@@ -772,7 +773,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Pet]",
             '400': None,
         }
@@ -794,16 +795,16 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
             'status': 'csv',
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -829,7 +830,7 @@ class PetApi:
 
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth', 
             'http_signature_test'
         ]
@@ -859,14 +860,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Pet]:
         """(Deprecated) Finds Pets by tags
@@ -906,7 +907,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Pet]",
             '400': None,
         }
@@ -928,14 +929,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Pet]]:
         """(Deprecated) Finds Pets by tags
@@ -975,7 +976,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Pet]",
             '400': None,
         }
@@ -997,14 +998,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """(Deprecated) Finds Pets by tags
@@ -1044,7 +1045,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Pet]",
             '400': None,
         }
@@ -1066,16 +1067,16 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
             'tags': 'csv',
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1101,7 +1102,7 @@ class PetApi:
 
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth', 
             'http_signature_test'
         ]
@@ -1131,14 +1132,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Pet:
         """Find pet by ID
@@ -1177,7 +1178,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "Pet",
             '400': None,
             '404': None,
@@ -1200,14 +1201,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Pet]:
         """Find pet by ID
@@ -1246,7 +1247,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "Pet",
             '400': None,
             '404': None,
@@ -1269,14 +1270,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Find pet by ID
@@ -1315,7 +1316,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "Pet",
             '400': None,
             '404': None,
@@ -1338,15 +1339,15 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1370,7 +1371,7 @@ class PetApi:
 
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'api_key'
         ]
 
@@ -1399,14 +1400,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Update an existing pet
@@ -1445,7 +1446,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
             '404': None,
@@ -1469,14 +1470,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Update an existing pet
@@ -1515,7 +1516,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
             '404': None,
@@ -1539,14 +1540,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update an existing pet
@@ -1585,7 +1586,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '400': None,
             '404': None,
@@ -1609,15 +1610,15 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1647,7 +1648,7 @@ class PetApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth', 
             'http_signature_test'
         ]
@@ -1679,14 +1680,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Updates a pet in the store with form data
@@ -1731,7 +1732,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '405': None,
         }
@@ -1755,14 +1756,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Updates a pet in the store with form data
@@ -1807,7 +1808,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '405': None,
         }
@@ -1831,14 +1832,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Updates a pet in the store with form data
@@ -1883,7 +1884,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '405': None,
         }
@@ -1907,15 +1908,15 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -1948,7 +1949,7 @@ class PetApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth'
         ]
 
@@ -1979,14 +1980,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ModelApiResponse:
         """uploads an image
@@ -2031,7 +2032,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "ModelApiResponse",
         }
         response_data = await self.api_client.call_api(
@@ -2054,14 +2055,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ModelApiResponse]:
         """uploads an image
@@ -2106,7 +2107,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "ModelApiResponse",
         }
         response_data = await self.api_client.call_api(
@@ -2129,14 +2130,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """uploads an image
@@ -2181,7 +2182,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "ModelApiResponse",
         }
         response_data = await self.api_client.call_api(
@@ -2204,15 +2205,15 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -2252,7 +2253,7 @@ class PetApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth'
         ]
 
@@ -2283,14 +2284,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ModelApiResponse:
         """uploads an image (required)
@@ -2335,7 +2336,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "ModelApiResponse",
         }
         response_data = await self.api_client.call_api(
@@ -2358,14 +2359,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ModelApiResponse]:
         """uploads an image (required)
@@ -2410,7 +2411,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "ModelApiResponse",
         }
         response_data = await self.api_client.call_api(
@@ -2433,14 +2434,14 @@ class PetApi:
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
-            tuple[
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
                 Annotated[StrictFloat, Field(gt=0)]
             ]
         ] = None,
-        _request_auth: Optional[dict[StrictStr, Any]] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
-        _headers: Optional[dict[StrictStr, Any]] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """uploads an image (required)
@@ -2485,7 +2486,7 @@ class PetApi:
             _host_index=_host_index
         )
 
-        _response_types_map: dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "ModelApiResponse",
         }
         response_data = await self.api_client.call_api(
@@ -2508,15 +2509,15 @@ class PetApi:
 
         _host = None
 
-        _collection_formats: dict[str, str] = {
+        _collection_formats: Dict[str, str] = {
         }
 
-        _path_params: dict[str, str] = {}
-        _query_params: list[tuple[str, str]] = []
-        _header_params: dict[str, Optional[str]] = _headers or {}
-        _form_params: list[tuple[str, str]] = []
-        _files: dict[
-            str, Union[str, bytes, list[str], list[bytes], list[tuple[str, bytes]]]
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
         ] = {}
         _body_params: Optional[bytes] = None
 
@@ -2556,7 +2557,7 @@ class PetApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: list[str] = [
+        _auth_settings: List[str] = [
             'petstore_auth'
         ]
 

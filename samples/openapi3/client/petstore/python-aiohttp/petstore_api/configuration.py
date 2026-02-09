@@ -18,7 +18,7 @@ import http.client as httplib
 import logging
 from logging import FileHandler
 import sys
-from typing import Any, ClassVar, Literal, Optional, TypedDict, Union
+from typing import Any, ClassVar, Dict, List Literal, Optional, TypedDict, Union
 # TODO: When dropping Python 3.10 support, remove fallback
 try:
     from typing import NotRequired, Self
@@ -34,7 +34,7 @@ JSON_SCHEMA_VALIDATION_KEYWORDS = {
     'minLength', 'pattern', 'maxItems', 'minItems'
 }
 
-ServerVariablesT = dict[str, str]
+ServerVariablesT = Dict[str, str]
 
 GenericAuthSetting = TypedDict(
     "GenericAuthSetting",
@@ -131,13 +131,13 @@ AuthSettings = TypedDict(
 class HostSettingVariable(TypedDict):
     description: str
     default_value: str
-    enum_values: list[str]
+    enum_values: List[str]
 
 
 class HostSetting(TypedDict):
     url: str
     description: str
-    variables: NotRequired[dict[str, HostSettingVariable]]
+    variables: NotRequired[Dict[str, HostSettingVariable]]
 
 
 class Configuration:
@@ -147,11 +147,11 @@ class Configuration:
     :param ignore_operation_servers
       Boolean to ignore operation servers for the API client.
       Config will use `host` as the base url regardless of the operation servers.
-    :param api_key: dict to store API key(s).
+    :param api_key: Dict to store API key(s).
       Each entry in the dict specifies an API key.
       The dict key is the name of the security scheme in the OAS specification.
       The dict value is the API key secret.
-    :param api_key_prefix: dict to store API prefix (e.g. Bearer).
+    :param api_key_prefix: Dict to store API prefix (e.g. Bearer).
       The dict key is the name of the security scheme in the OAS specification.
       The dict value is an API key prefix when generating the auth data.
     :param username: Username for HTTP basic authentication.
@@ -259,16 +259,16 @@ conf = petstore_api.Configuration(
     def __init__(
         self,
         host: Optional[str]=None,
-        api_key: Optional[dict[str, str]]=None,
-        api_key_prefix: Optional[dict[str, str]]=None,
+        api_key: Optional[Dict[str, str]]=None,
+        api_key_prefix: Optional[Dict[str, str]]=None,
         username: Optional[str]=None,
         password: Optional[str]=None,
         access_token: Optional[str]=None,
         signing_info: Optional[HttpSigningConfiguration]=None,
         server_index: Optional[int]=None,
         server_variables: Optional[ServerVariablesT]=None,
-        server_operation_index: Optional[dict[int, int]]=None,
-        server_operation_variables: Optional[dict[int, ServerVariablesT]]=None,
+        server_operation_index: Optional[Dict[int, int]]=None,
+        server_operation_variables: Optional[Dict[int, ServerVariablesT]]=None,
         ignore_operation_servers: bool=False,
         ssl_ca_cert: Optional[str]=None,
         retries: Optional[int] = None,
@@ -406,7 +406,7 @@ conf = petstore_api.Configuration(
         """date format
         """
 
-    def __deepcopy__(self, memo:  dict[int, Any]) -> Self:
+    def __deepcopy__(self, memo:  Dict[int, Any]) -> Self:
         cls = self.__class__
         result = cls.__new__(cls)
         memo[id(self)] = result
@@ -649,7 +649,7 @@ conf = petstore_api.Configuration(
                "SDK Package Version: 1.0.0".\
                format(env=sys.platform, pyversion=sys.version)
 
-    def get_host_settings(self) -> list[HostSetting]:
+    def get_host_settings(self) -> List[HostSetting]:
         """Gets an array of host settings
 
         :return: An array of host settings
@@ -702,7 +702,7 @@ conf = petstore_api.Configuration(
         self,
         index: Optional[int],
         variables: Optional[ServerVariablesT]=None,
-        servers: Optional[list[HostSetting]]=None,
+        servers: Optional[List[HostSetting]]=None,
     ) -> str:
         """Gets host URL based on the index and variables
         :param index: array index of the host settings

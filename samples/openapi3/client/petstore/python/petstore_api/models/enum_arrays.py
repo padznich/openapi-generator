@@ -35,12 +35,12 @@ class EnumArrays(BaseModel):
         None,
         description="just_symbol of the EnumArrays"
     )
-    array_enum: Optional[list[Literal['fish', 'crab']]] = Field(
+    array_enum: Optional[List[Literal['fish', 'crab']]] = Field(
         None,
         description="array_enum of the EnumArrays"
     )
-    additional_properties: dict[str, Any] = {}
-    __properties: ClassVar[list[str]] = ["just_symbol", "array_enum"]
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["just_symbol", "array_enum"]
 
     @field_validator('just_symbol')
     def just_symbol_validate_enum(cls, value):
@@ -71,8 +71,8 @@ class EnumArrays(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -84,7 +84,7 @@ class EnumArrays(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

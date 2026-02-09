@@ -32,7 +32,7 @@ class ArrayOfNumberOnly(BaseModel):
     ArrayOfNumberOnly
     """ # noqa: E501
     array_number: Optional[List[float]] = Field(default=None, alias="ArrayNumber")
-    __properties: ClassVar[list[str]] = ["ArrayNumber"]
+    __properties: ClassVar[List[str]] = ["ArrayNumber"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,8 +42,8 @@ class ArrayOfNumberOnly(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -55,7 +55,7 @@ class ArrayOfNumberOnly(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

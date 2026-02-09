@@ -35,8 +35,8 @@ class MultiArrays(BaseModel):
     """ # noqa: E501
     tags: Optional[List[Tag]] = None
     files: Optional[List[File]] = Field(default=None, description="Another array of objects in addition to tags (mypy check to not to reuse the same iterator)")
-    additional_properties: dict[str, Any] = {}
-    __properties: ClassVar[list[str]] = ["tags", "files"]
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["tags", "files"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -46,8 +46,8 @@ class MultiArrays(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -59,7 +59,7 @@ class MultiArrays(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

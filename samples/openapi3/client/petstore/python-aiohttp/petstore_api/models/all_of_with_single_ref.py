@@ -34,7 +34,7 @@ class AllOfWithSingleRef(BaseModel):
     """ # noqa: E501
     username: Optional[StrictStr] = None
     single_ref_type: Optional[SingleRefType] = Field(default=None, alias="SingleRefType")
-    __properties: ClassVar[list[str]] = ["username", "SingleRefType"]
+    __properties: ClassVar[List[str]] = ["username", "SingleRefType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,8 +44,8 @@ class AllOfWithSingleRef(BaseModel):
 
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -57,7 +57,7 @@ class AllOfWithSingleRef(BaseModel):
         """Returns the JSON representation of the actual instance"""
         return json.dumps(self.model_dump(by_alias=True))
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 

@@ -17,7 +17,7 @@ import pprint
 from petstore_api.models.basque_pig import BasquePig
 from petstore_api.models.danish_pig import DanishPig
 from pydantic import Field, RootModel
-from typing import Any, Union
+from typing import Any, Dict, List, Union
 # TODO: When dropping Python 3.10 support, remove fallback
 try:
     from typing import Self
@@ -52,8 +52,8 @@ class Pig(RootModel[Union[BasquePig, DanishPig]]):
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
 
     @classmethod
-    def from_dict(cls, obj: dict[str, Any]) -> Self:
-        """Returns the object represented by the python dict"""
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the python Dict"""
         return cls.model_validate(obj, strict=True)
 
     @classmethod
@@ -65,7 +65,7 @@ class Pig(RootModel[Union[BasquePig, DanishPig]]):
         """Returns the JSON representation of the actual instance"""
         return self.model_dump_json(by_alias=True)
 
-    def to_dict(self) -> dict[str, Any]:
+    def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 
