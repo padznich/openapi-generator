@@ -2,7 +2,6 @@
 
 {{>partial_header}}
 
-from __future__ import annotations
 
 import io
 import json
@@ -10,8 +9,6 @@ import re
 import ssl
 
 import urllib3
-
-from typing import TYPE_CHECKING
 
 # TODO: When dropping Python 3.12 support, remove fallback
 try:
@@ -21,15 +18,11 @@ except ImportError:
 
 from {{packageName}}.exceptions import ApiException, ApiValueError
 
-if TYPE_CHECKING:
-    from typing import Any, Mapping, Optional, Union
-    from {{packageName}}.configuration import Configuration
-
 SUPPORTED_SOCKS_PROXIES = {"socks5", "socks5h", "socks4", "socks4a"}
 RESTResponseType = urllib3.HTTPResponse
 
 
-def is_socks_proxy_url(url: Optional[str]) -> bool:
+def is_socks_proxy_url(url):
     if url is None:
         return False
     split_section = url.split("://")
@@ -41,13 +34,13 @@ def is_socks_proxy_url(url: Optional[str]) -> bool:
 
 class RESTResponse(io.IOBase):
 
-    def __init__(self, resp: urllib3.BaseHTTPResponse) -> None:
+    def __init__(self, resp) -> None:
         self.response = resp
         self.status = resp.status
         self.reason = resp.reason
-        self.data: Optional[bytes] = None
+        self.data = None
 
-    def read(self) -> bytes:
+    def read(self):
         if self.data is None:
             self.data = self.response.data
         return self.data
@@ -58,19 +51,19 @@ class RESTResponse(io.IOBase):
         return self.response.headers
 
     @deprecated("Use the headers property instead.")
-    def getheaders(self) -> Mapping[str, str]:
+    def getheaders(self):
         """Returns a dictionary of the response headers; use ``headers`` instead."""
         return self.response.headers
 
     @deprecated("Use headers.get() instead.")
-    def getheader(self, name: str, default: Optional[str] = None) -> Optional[str]:
+    def getheader(self, name, default=None):
         """Returns a given response header; use ``headers.get()`` instead."""
         return self.response.headers.get(name, default)
 
 
 class RESTClientObject:
 
-    def __init__(self, configuration: Configuration) -> None:
+    def __init__(self, configuration) -> None:
         # urllib3.PoolManager will pass all kw parameters to connectionpool
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680  # noqa: E501
@@ -125,13 +118,13 @@ class RESTClientObject:
 
     def request(
         self,
-        method: str,
-        url: str,
-        headers: Optional[dict[str, str]] = None,
-        body: Any = None,
-        post_params: Optional[Union[list[tuple[str, Any]], dict[str, Any]]] = None,
-        _request_timeout: Optional[Union[int, float, tuple[Union[int, float], Union[int, float]]]] = None,
-    ) -> RESTResponse:
+        method,
+        url,
+        headers=None,
+        body=None,
+        post_params=None,
+        _request_timeout=None
+    ):
         """Perform requests.
 
         :param method: http request method
