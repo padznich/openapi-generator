@@ -15,7 +15,11 @@
 from __future__ import annotations
 import json
 from enum import Enum, StrEnum, IntEnum
-from typing import Self
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class OuterEnum(StrEnum):
 

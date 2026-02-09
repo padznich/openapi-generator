@@ -19,7 +19,12 @@ import logging
 from logging import FileHandler
 import multiprocessing
 import sys
-from typing import Any, ClassVar, Dict, List, Literal, NotRequired, Optional, TypedDict, Union, Self
+from typing import Any, ClassVar, Dict, List Literal, Optional, TypedDict, Union
+# TODO: When dropping Python 3.10 support, remove fallback
+try:
+    from typing import NotRequired, Self
+except ImportError:
+    from typing_extensions import NotRequired, Self
 
 import urllib3
 
