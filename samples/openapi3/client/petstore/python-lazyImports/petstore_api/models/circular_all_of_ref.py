@@ -59,7 +59,7 @@ class CircularAllOfRef(BaseModel):
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True, exclude_none=True, mode="json"))
 
 
 from petstore_api.models.second_circular_all_of_ref import SecondCircularAllOfRef

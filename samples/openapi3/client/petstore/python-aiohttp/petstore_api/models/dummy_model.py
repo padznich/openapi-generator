@@ -58,7 +58,7 @@ class DummyModel(BaseModel):
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True, exclude_none=True, mode="json"))
 
 
 from petstore_api.models.self_reference_model import SelfReferenceModel

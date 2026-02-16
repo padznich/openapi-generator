@@ -13,8 +13,6 @@
 
 
 from __future__ import annotations
-import json
-import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from petstore_api.models.enum_string1 import EnumString1
@@ -24,6 +22,7 @@ from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 ONEOFENUMSTRING_ONE_OF_SCHEMAS = ["EnumString1", "EnumString2"]
+
 
 class OneOfEnumString(RootModel[Union[EnumString1, EnumString2]]):
     """
@@ -47,27 +46,5 @@ class OneOfEnumString(RootModel[Union[EnumString1, EnumString2]]):
             return getattr(root, name)
 
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
-
-    @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        """Returns the object represented by the Dict"""
-        return cls.model_validate(obj, strict=True)
-
-    @classmethod
-    def from_json(cls, json_str: str) -> Self:
-        """Returns the object represented by the json string"""
-        return cls.model_validate_json(json_str)
-
-    def to_json(self) -> str:
-        """Returns the JSON representation of the actual instance"""
-        return self.model_dump_json(by_alias=True, exclude_none=True)
-
-    def to_dict(self) -> Dict[str, Any]:
-        """Returns the dict representation of the actual instance"""
-        return self.model_dump(by_alias=True)
-
-    def to_str(self) -> str:
-        """Returns the string representation of the actual instance"""
-        return pprint.pformat(self.model_dump(by_alias=True, mode="json"))
 
 
