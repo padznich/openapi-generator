@@ -16,9 +16,9 @@ from __future__ import annotations
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
+from pydantic import Field, RootModel
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
-from pydantic import Field, RootModel
 
 ANYOFCOLOR_ANY_OF_SCHEMAS = ["List[int]", "str"]
 

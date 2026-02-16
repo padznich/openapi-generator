@@ -47,17 +47,17 @@ class AllOfSuperModel(BaseModel):
         """Returns the object represented by the json string"""
         return cls.model_validate_json(json_str)
 
-    def to_json(self) -> str:
-        """Returns the JSON representation of the actual instance"""
-        return json.dumps(self.model_dump(by_alias=True, exclude_none=True))
-
     def to_dict(self) -> Dict[str, Any]:
         """Returns the dict representation of the actual instance"""
         return self.model_dump(by_alias=True)
 
+    def to_json(self) -> str:
+        """Returns the JSON representation of the actual instance"""
+        return json.dumps(self.model_dump(by_alias=True, exclude_none=True, mode="json"))
+
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.model_dump(by_alias=True, exclude_none=True, mode="json"))
+        return pprint.pformat(self.to_json())
 
 
 
