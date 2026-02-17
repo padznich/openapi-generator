@@ -29,7 +29,7 @@ class Pig(RootModel[Union[BasquePig, DanishPig]]):
     Pig
     """
     root: Union[BasquePig, DanishPig] = Field(
-      ..., discriminator="class_name"
+      ...
     )
 
     def __getattr__(self, name):

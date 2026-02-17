@@ -17,7 +17,7 @@ class {{classname}}(RootModel[Union[{{#anyOf}}{{.}}{{^-last}}, {{/-last}}{{/anyO
     {{{description}}}{{^description}}{{{classname}}}{{/description}}
     """
     root: Union[{{#anyOf}}{{.}}{{^-last}}, {{/-last}}{{/anyOf}}{{#isNullable}}, None{{/isNullable}}] = Field(
-      {{#isNullable}}None{{/isNullable}}{{^isNullable}}...{{/isNullable}}{{#discriminator}}, discriminator="{{discriminatorName}}"{{/discriminator}}
+      {{#isNullable}}None{{/isNullable}}{{^isNullable}}...{{/isNullable}}{{#discriminator}}{{/discriminator}}
     )
 
     def __getattr__(self, name):
