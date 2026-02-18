@@ -46,4 +46,26 @@ class IntOrString(RootModel[Union[int, str]]):
 
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
 
+    @classmethod
+    def from_dict(cls, obj: Dict[str, Any]) -> Self:
+        """Returns the object represented by the Dict"""
+        return cls.model_validate(obj, strict=True)
+
+    @classmethod
+    def from_json(cls, json_str: str) -> Self:
+        """Returns the object represented by the json string"""
+        return cls.model_validate_json(json_str)
+
+    def to_dict(self, exclude_unset: bool = True) -> Dict[str, Any]:
+        """Returns the dict representation of the actual instance"""
+        return self.model_dump(by_alias=True, exclude_unset=exclude_unset)
+
+    def to_json(self, exclude_unset: bool = True) -> str:
+        """Returns the JSON representation of the actual instance"""
+        return json.dumps(self.model_dump(by_alias=True, exclude_unset=exclude_unset, mode="json"))
+
+    def to_str(self) -> str:
+        """Returns the string representation of the model using alias"""
+        return pprint.pformat(self.to_dict(exclude_unset=False))
+
 
