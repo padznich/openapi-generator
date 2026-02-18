@@ -134,7 +134,7 @@ class ModelTests(unittest.TestCase):
     def test_oneof_nested_from_json_invalid(self):
         try:
             petstore_api.WithNestedOneOf.from_json('{"size": 1, "nested_oneof_enum_string": "e"}')
-        except ValueError as e:
+        except ValidationError as e:
             # pydantic_core._pydantic_core.ValidationError: 2 validation errors for WithNestedOneOf
             # nested_oneof_enum_string.str-enum[EnumString1]
             #   Input should be 'a' or 'b' [type=enum, input_value='e', input_type=str]
