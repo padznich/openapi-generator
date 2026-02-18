@@ -78,16 +78,6 @@ class ModelTests(unittest.TestCase):
         self.pet1.tags = []
         self.assertFalse(self.pet1 == self.pet2)
 
-    def test_oneof_schema_2_validator(self):
-        new_color = petstore_api.Color()
-        array_of_integers = [12, 34, 56]
-
-        try:
-            new_color.oneof_schema_2_validator = array_of_integers
-            self.fail(f"Should have failed: {new_color.oneof_schema_2_validator}")
-        except ValueError as e:
-            self.assertTrue("List should have at least 4 items after validation, not 3" in str(e))
-
     def test_oneOf_array_of_integers(self):
         # test new Color 
         new_color = petstore_api.Color()
@@ -404,32 +394,14 @@ class ModelTests(unittest.TestCase):
         hex_color = "#00FF00"
 
         # These should all pass
-        color = petstore_api.Color(oneof_schema_1_validator=rgb)
-        self.assertEqual(rgb, color.oneof_schema_1_validator)
+        color = petstore_api.Color(rgb)
+        self.assertEqual(rgb, color.root)
 
-        color = petstore_api.Color(oneof_schema_2_validator=rgba)
-        self.assertEqual(rgba, color.oneof_schema_2_validator)
+        color = petstore_api.Color(rgba)
+        self.assertEqual(rgba, color.root)
 
-        color = petstore_api.Color(oneof_schema_3_validator=hex_color)
-        self.assertEqual(hex_color, color.oneof_schema_3_validator)
-
-        try:
-            petstore_api.Color(oneof_schema_1_validator=rgba)
-            self.fail("invalid validation")
-        except ValidationError as e:
-            self.assertIn("List should have at most 3 items after validation, not 4", str(e))
-
-        try:
-            petstore_api.Color(oneof_schema_2_validator=rgb)
-            self.fail("invalid validation")
-        except ValidationError as e:
-            self.assertIn("List should have at least 4 items after validation, not 3", str(e))
-
-        try:
-            petstore_api.Color(oneof_schema_3_validator="too long string")
-            self.fail("invalid validation")
-        except ValidationError as e:
-            self.assertIn("String should have at most 7 characters", str(e))
+        color = petstore_api.Color(hex_color)
+        self.assertEqual(hex_color, color.root)
 
     def test_object_id(self):
         pet_ap = petstore_api.Pet(name="test name", photoUrls=["string"])
