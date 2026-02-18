@@ -143,9 +143,17 @@ class ModelTests(unittest.TestCase):
 
     def test_oneof_nested_from_json_invalid(self):
         try:
-            nested2 = petstore_api.WithNestedOneOf.from_json('{"size": 1, "nested_oneof_enum_string": "e"}')
+            petstore_api.WithNestedOneOf.from_json('{"size": 1, "nested_oneof_enum_string": "e"}')
         except ValueError as e:
-            self.assertTrue("'e' is not a valid EnumString1, 'e' is not a valid EnumString" in str(e))
+            # pydantic_core._pydantic_core.ValidationError: 2 validation errors for WithNestedOneOf
+            # nested_oneof_enum_string.str-enum[EnumString1]
+            #   Input should be 'a' or 'b' [type=enum, input_value='e', input_type=str]
+            #     For further information visit https://errors.pydantic.dev/2.12/v/enum
+            # nested_oneof_enum_string.str-enum[EnumString2]
+            #   Input should be 'c' or 'd' [type=enum, input_value='e', input_type=str]
+            #     For further information visit https://errors.pydantic.dev/2.12/v/enum
+            self.assertIn("Input should be 'a' or 'b' [type=enum, input_value='e', input_type=str]", str(e))
+            self.assertIn("Input should be 'c' or 'd' [type=enum, input_value='e', input_type=str]", str(e))
 
     def test_oneof_enum_string(self):
         # test the constructor
@@ -387,8 +395,8 @@ class ModelTests(unittest.TestCase):
         try:
             self.pet.status = "error"
             self.assertTrue(False, "should have failed with 'invalid status' error") # this line shouldn't execute
-        except ValueError as e:
-            self.assertTrue("must be one of enum values ('available', 'pending', 'sold')" in str(e))
+        except ValidationError as e:
+            self.assertIn("Input should be 'available', 'pending' or 'sold' [type=literal_error, input_value='error', input_type=str]", str(e))
 
     def test_constraints(self):
         rgb = [128, 128, 128]
